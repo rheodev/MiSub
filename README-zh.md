@@ -9,7 +9,7 @@
 [![Vue 3](https://img.shields.io/badge/Vue-3.x-green.svg)](https://vuejs.org/)
 [![Version](https://img.shields.io/badge/version-v2.7.0-indigo.svg)](#-更新日志)
 
-[功能特性](#-功能特性) • [快速开始](#-快速开始) • [部署指南](#-部署指南) • [使用说明](#-使用说明) • [External API 使用说明](docs/external-management-api-usage.md) • [Wiki 文档](docs/OPERATOR_CHAIN_GUIDE.md) • [v2.5.0 升级指南](docs/UPGRADE_V2.5.md) • [更新日志](#-更新日志)
+[功能特性](#-功能特性) • [快速开始](#-快速开始) • [部署指南](#-部署指南) • [Docker 部署](docs/docker.md) • [使用说明](#-使用说明) • [External API 使用说明](docs/external-management-api-usage.md) • [Wiki 文档](docs/OPERATOR_CHAIN_GUIDE.md) • [v2.5.0 升级指南](docs/UPGRADE_V2.5.md) • [更新日志](#-更新日志)
 
 </div>
 
@@ -183,6 +183,8 @@
    - **构建命令**: `npm run build`
    - **构建输出目录**: `dist`
 6. 点击 `保存并部署`
+
+不使用 Cloudflare 时，见 [Docker 部署](docs/docker.md)。
 
 ---
 
@@ -363,7 +365,7 @@ MiSub 提供 `/cron` 接口用于外部定时服务触发订阅刷新，适合 C
 如果由于网络限制导致订阅内容抓取失败，可以额外部署一个用于抓取转发的 Edge Functions 代理：
 - [Vercel Fetch Proxy 部署指南](docs/fetch-proxy-tutorial.md)
 
-> 说明：该代理仅作为可选的辅助抓取组件，不属于 MiSub 主站部署方式。MiSub 主站仍然仅支持部署在 Cloudflare Pages。
+> 说明：该代理仅作为可选的辅助抓取组件，不属于 MiSub 主站部署方式。主站可以部署在 Cloudflare Pages，也可以按 [Docker 部署](docs/docker.md) 在单机运行。
 
 ## 📊 存储类型对比
 
@@ -388,7 +390,7 @@ MiSub 提供 `/cron` 接口用于外部定时服务触发订阅刷新，适合 C
 - **前端**: Vue 3 + Vite + Tailwind CSS
 - **后端**: Cloudflare Pages Functions
 - **存储**: Cloudflare KV + D1 数据库
-- **部署平台**: 仅 Cloudflare Pages
+- **部署平台**: Cloudflare Pages，或使用仓库中的 Docker 配置在单机运行
 
 ---
 
@@ -399,6 +401,7 @@ MiSub 提供 `/cron` 接口用于外部定时服务触发订阅刷新，适合 C
 - [External API OpenAPI 规范](docs/external-management-api.openapi.yaml)
 - [操作符链指南](docs/OPERATOR_CHAIN_GUIDE.md)
 - [v2.5.0 升级指南](docs/UPGRADE_V2.5.md)
+- [Docker 部署](docs/docker.md)
 - [架构说明](docs/architecture.md)
 - [数据模型](docs/data-model.md)
 

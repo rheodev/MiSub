@@ -1,0 +1,20 @@
+services:
+  misub:
+    build: .
+    ports:
+      - "${HOST_PORT:-8788}:8788"
+    environment:
+      PORT: "8788"
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
+      COOKIE_SECRET: ${COOKIE_SECRET:-}
+      MISUB_PUBLIC_URL: ${MISUB_PUBLIC_URL:-http://localhost:8788}
+      MISUB_CALLBACK_URL: ${MISUB_CALLBACK_URL:-}
+      CORS_ORIGINS: ${CORS_ORIGINS:-}
+      CRON_SECRET: ${CRON_SECRET:-}
+      CRON_INTERVAL_SECONDS: ${CRON_INTERVAL_SECONDS:-3600}
+    volumes:
+      - misub-data:/data
+    restart: unless-stopped
+
+volumes:
+  misub-data:
